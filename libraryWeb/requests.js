@@ -1,4 +1,5 @@
-const rootDir = "http://192.168.1.90:8080/bibliothek";
+// const rootDir = "http://192.168.1.90:8080/bibliothek";
+const rootDir = "http://127.0.0.1:8080/bibliothek";
 
 /**
  * Function to send request with HTTP GET Method 
@@ -8,7 +9,9 @@ const rootDir = "http://192.168.1.90:8080/bibliothek";
  * @author Simon Fäs
  */
 function httpGet(url, consumerFunction) {
-    fetch(url, {headers: {"Authorization": authString}})
+    fetch(url,
+    //    {headers: {"Authorization": authString}}
+    )
     .then(response => {
         if (response.ok) {
             response.json().then(data => consumerFunction(data))    
@@ -30,7 +33,7 @@ async function httpPost(url, data = {}) {
     const response = await fetch(url, {
         method: "POST", 
         headers: {
-            "Authorization": authString,
+            // "Authorization": authString,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -49,7 +52,7 @@ async function httpPut(url, data = {}) {
     const response = await fetch(url, {
         method: "PUT", 
         headers: {
-            "Authorization": authString,
+            // "Authorization": authString,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -65,7 +68,9 @@ async function httpPut(url, data = {}) {
  * @author Simon Fäs
  */
 async function httpDelete(url, id) {
-    await fetch(`${url}/${id}`, {method: "DELETE", headers: {"Authorization": authString}}).catch(error => console.error(error));
+    await fetch(`${url}/${id}`, {method: "DELETE",
+        // headers: {"Authorization": authString}
+    }).catch(error => console.error(error));
 }
 
 /**

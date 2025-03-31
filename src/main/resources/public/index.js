@@ -1,23 +1,19 @@
 const navigation = document.getElementById('nav');
 const tableContent = document.getElementById("mainTable");
 const editContent = document.getElementById("mainEdit");
-const loginContent = document.getElementById("mainLogin");
 const tableHead = document.getElementById("tableHead");
 const tableBody = document.getElementById("tableBody");
-const form = document.getElementById("form");
-const btnCreate = document.getElementById("btnCreate");
+let form = document.getElementById("form");
+let btnCreate = document.getElementById("btnCreate");
 const searchBar = document.getElementById("searchBar");
 const searchBtn = document.getElementById("searchBtn");
-const btnMenu = document.getElementById("btnMenu");
-const loginName = document.getElementById("inputName");
-const loginPassword = document.getElementById("inputPassword");
 const mediumAttributes = [
     { name: "titel", type: "text", required: true },
     { name: "autor", type: "text", required: true },
-    { name: "genre", type: "text" },
-    { name: "altersfreigabe", type: "number", min: 0, max: 127 },
-    { name: "isbn", type: "number", min: 0 },
-    { name: "standortcode", type: "text" },
+    { name: "genre", type: "text", required: true },
+    { name: "altersfreigabe", type: "number", min: 0, max: 127, required: true },
+    { name: "isbn", type: "number", min: 0, max: 9_999_999_999_999, required: true },
+    { name: "standortcode", type: "text", required: true },
 ]
 
 const ausleiheAttributes = [
@@ -34,7 +30,8 @@ const kundeAttributes = [
     { name: "Ort", var: "adresse.ort", type: "text", required: true },
     { name: "Postleitzahl", var: "adresse.zip", type: "text", required: true },
 ]
-let authString = "";
+const adminNavItems = [ "linkToKundeTabelle", "linkToKundeErstellen", "linkToMediumErstellen" ]
+let role = "ROLE_USER";
 
 /**
  * Extracts values from form and constructs an usable object from it
@@ -50,16 +47,16 @@ function extractFormData() {
  * Code was copied by ChatGPT
  * Explanation of the code:
  * Initial Object: We start with an object that has a key using dot notation.
- * 
+ *
  * convertToNestedObject Function:
  * Iteration: Loop through each key in the original object.
  * Split Key: Split the key by the dot to get an array of keys.
  * Construct Nested Object: Dynamically build the nested object using a temporary reference.
  * Assign Value: Set the value at the appropriate nested level.
  * Return Result: Return the newly constructed nested object.
- *  
- * @param {*} obj 
- * @returns Nested object 
+ *
+ * @param {*} obj
+ * @returns Nested object
  * @version 1.0.0
  * @author ChatGPT
  */
@@ -106,10 +103,11 @@ function submit(event, ressource, id = null) {
             .then((response) => resolve(response));
     } else if (ressource) {
         let data = extractFormData();
+        console.log(data);
         if (ressource === "ausleihe") {
             data.ausleihedauer = data.ausleihedauer + 14;
         }
-        httpPut(`${rootDir}/${ressource}`, data)
+        httpPut(`${rootDir}/${ressource}/${id}`, data)
             .catch(error => console.error(error))
             .then(response => resolve(response));
     }
@@ -136,17 +134,23 @@ function softReset() {
 }
 
 /**
- * Function to clear event listeners, 
+ * Function to clear event listeners,
  * the table and form contents and make all contents invisible.
  * @version 1.0.0
  * @author Simon Fäs
  */
 function reset() {
     softReset();
-    form.removeEventListener("submit", form);
+    // Remove all event listeners from form
+    let newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+    form = newForm;
+    // Remove all event listeners from btnCreate
+    let newBtnCreate = btnCreate.cloneNode(true);
+    btnCreate.parentNode.replaceChild(newBtnCreate, btnCreate);
+    btnCreate = newBtnCreate;
     tableContent.classList.add("notVisible");
     editContent.classList.add("notVisible");
-    loginContent.classList.add("notVisible");
     searchBar.classList.add("notVisible");
     searchBtn.classList.add("notVisible");
 }
@@ -214,7 +218,7 @@ function installButtons(obj, ressource) {
     if (obj && !(obj instanceof PointerEvent)) {
         saveBtn.textContent = ressource === "ausleihe" ? "Verlängern" : saveBtn.textContent;
         let deleteBtn = document.createElement("button");
-        deleteBtn.addEventListener("click", () => confirmAndDelete(ressource === "ausleihe" ? obj?.medium?.id : obj?.id));
+        deleteBtn.addEventListener("click", () => confirmAndDelete((ressource === "ausleihe" ? obj?.medium?.id : obj?.id), ressource));
         deleteBtn.setAttribute("type", "button");
         deleteBtn.classList.add("btnDanger");
         deleteBtn.textContent = "Löschen";
@@ -282,8 +286,10 @@ function linkToKundeTabelle(searchString = "") {
     searchBar.classList.remove("notVisible");
     searchBtn.classList.remove("notVisible");
     searchString = searchBar.value && searchBar.value.trim() !== "" ? searchBar.value : searchString;
-    if (searchString && searchString != "") {
+    if (searchString && searchString !== "") {
         httpGet(`${rootDir}/kunde/nachname/${searchString}`, constructKundeTable);
+    } else {
+        httpGet(`${rootDir}/kunde/nachname/${encodeURI(" ")}`, constructKundeTable);
     }
 }
 
@@ -369,26 +375,16 @@ function getValueByString(obj, attrArr = "") {
     return e ? e.toString() : "";
 }
 
-/**
- * Function to log user in
- * @version 1.0.0
- * @author Simon Fäs
- */
-function tryLogin() {
-    tmp = `${loginName.value}:${loginPassword.value}`;
-    authString = `Basic ${btoa(tmp)}`;
-    fetch(`${rootDir}/login`, {
-        headers: {
-            "Authorization": authString,
+function renderNav() {
+    for (let i = 0; i < navigation.children.length; i++) {
+        let item = navigation.children.item(i);
+        if ((role === "ROLE_USER" && !adminNavItems.includes(item.id)) ||  role === "ROLE_ADMIN") {
+            item.classList.remove("notVisible");
         }
-    }).then(response => {
-        if(response.ok) {
-            loginContent.classList.add("notVisible");
-            btnMenu.classList.remove("notVisible");
-            alert("Login erfolgreich");
-        } else {
-            alert("Logindaten ungültig");
-        }
-    });
+    }
 }
 
+httpGet(`${rootDir}/session`, (fetchedRole) => {
+    role = fetchedRole;
+    renderNav();
+});
