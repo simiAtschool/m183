@@ -1,5 +1,6 @@
 const ausleiheHeader = ["Medium-ID", "Kunden-ID", "Ausleihedatum", "Rückgabedatum", "", ""];
 const mediumHeader = ["ID", "Titel", "Autor", "", ""];
+const mediumHeaderUser = ["ID", "Titel", "Autor"];
 const kundeHeader = ["ID", "Name", "E-Mail", "Adresse", "", ""];
 
 /**
@@ -103,7 +104,7 @@ function constructMediumTable(data) {
         btnCreate.classList.add("notVisible")
     }
     const row = document.createElement("tr");
-    mediumHeader.forEach(element => row.appendChild(createHeaderCell(element)));
+    (role === "ROLE_USER" ? mediumHeaderUser : mediumHeader).forEach(element => row.appendChild(createHeaderCell(element)));
     tableHead.appendChild(row);
 
     // creating all cells
@@ -112,7 +113,9 @@ function constructMediumTable(data) {
         // creates a table row
         const row = document.createElement("tr");
 
-        for (let index = 1; index <= 5; index++) {
+        const indexMax = role = "ROLE_USER" ? 3 : 5;
+
+        for (let index = 1; index <= indexMax; index++) {
             const cell1 = document.createElement("td");
             cell1.appendChild(getMediumText(obj, index));
             row.appendChild(cell1);
@@ -141,9 +144,13 @@ function getMediumText(obj, cellNum) {
         case 3:
             return document.createTextNode(obj.autor ? obj.autor : "");
         case 4:
-            return editBtn(obj, linkToMediumErstellen);
+            if (!(role === "ROLE_USER")) {
+                return editBtn(obj, linkToMediumErstellen);
+            }
         case 5:
-            return deleteBtn(obj, "medium");
+            if (!(role === "ROLE_USER")) {
+                return deleteBtn(obj, "medium");
+            }
         default:
             return document.createTextNode("");
     }
