@@ -243,7 +243,7 @@ function deleteBtn(obj, ressource) {
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "delete";
     deleteBtn.classList.add("material-symbols-outlined");
-    deleteBtn.addEventListener("click", () => { confirmAndDelete(obj, ressource) });
+    deleteBtn.addEventListener("click", () => { confirmAndDelete((ressource === "ausleihe" ? obj?.medium : obj), ressource) });
     return deleteBtn;
 }
 

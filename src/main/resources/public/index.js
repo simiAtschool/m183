@@ -218,7 +218,7 @@ function installButtons(obj, ressource) {
     if (obj && !(obj instanceof PointerEvent)) {
         saveBtn.textContent = ressource === "ausleihe" ? "Verlängern" : saveBtn.textContent;
         let deleteBtn = document.createElement("button");
-        deleteBtn.addEventListener("click", () => confirmAndDelete((ressource === "ausleihe" ? obj?.medium?.id : obj?.id), ressource));
+        deleteBtn.addEventListener("click", () => { confirmAndDelete((ressource === "ausleihe" ? obj?.medium : obj), ressource) });
         deleteBtn.setAttribute("type", "button");
         deleteBtn.classList.add("btnDanger");
         deleteBtn.textContent = "Löschen";
@@ -376,8 +376,7 @@ function getValueByString(obj, attrArr = "") {
 }
 
 function renderNav() {
-    for (let i = 0; i < navigation.children.length; i++) {
-        let item = navigation.children.item(i);
+    for (let item of navigation.children) {
         if ((role === "ROLE_USER" && !adminNavItems.includes(item.id)) ||  role === "ROLE_ADMIN") {
             item.classList.remove("notVisible");
         }
