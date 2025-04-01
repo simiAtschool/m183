@@ -23,7 +23,7 @@ import org.hibernate.validator.constraints.Length;
  * <li>{@link #standortcode}: Standort des Mediums(In welchem Regal es eingeordnet ist)</li>
  * </ul>
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see MediumRepository
  * @see MediumController

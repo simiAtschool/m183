@@ -17,7 +17,7 @@ import java.util.List;
  * Es gibt keine POST- und PUT-Methode, da eine Adresse von mehreren Kunden unabhängig voneinander bewohnt werden kann.
  * Im Falle eines Umzugs wird automatisch die Adressänderung vorgenommen.
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Adresse
  * @see AdresseRepository

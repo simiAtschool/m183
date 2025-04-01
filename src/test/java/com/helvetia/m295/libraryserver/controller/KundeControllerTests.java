@@ -26,7 +26,7 @@ import java.util.Optional;
 /**
  * Klasse für Testfälle der Klasse {@link KundeController}
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see KundeController
  */

@@ -24,7 +24,7 @@ import java.util.Optional;
  * Klasse für Testfälle der Klasse {@link MediumController}. <br>
  * Berechtigungen müssen bei den GET-Methoden nicht getestet werden, da die Rolle "USER" für diese Methoden verwendet wird und "USER" weniger Rechte hat, als "ADMIN".
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see MediumController
  */

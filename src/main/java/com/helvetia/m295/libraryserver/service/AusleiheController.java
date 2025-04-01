@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Klasse um Serveranfragen rund um die Entity Ausleihe zu bearbeiten.
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Ausleihe
  * @see AusleiheRepository

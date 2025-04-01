@@ -22,7 +22,7 @@ import java.util.Date;
  * <li>{@link #medium}: Medium, das die Ausleihe betrifft</li>
  * </ul>
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see AusleiheRepository
  * @see AusleiheController

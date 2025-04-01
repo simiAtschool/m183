@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Klasse für Testfälle der Klasse {@link AdresseController}
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see AdresseController
  */

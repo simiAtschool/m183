@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Interface für DB-Zugang der Entity Kunde
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Kunde
  * @see KundeController

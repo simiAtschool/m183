@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Implementierung von {@link UserDetails}
  *
- * @author Simon Fäs
+ * @author Simon
  * @see UserDetails
  */
 public class LibraryUserDetails implements UserDetails {

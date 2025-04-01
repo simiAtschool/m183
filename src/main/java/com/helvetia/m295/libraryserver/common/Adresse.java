@@ -24,7 +24,7 @@ import java.util.Objects;
  * <li>zip: ZIP-Code der Adresse eines Kunden</li>
  * </ul>
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see AdresseRepository
  * @see AdresseController

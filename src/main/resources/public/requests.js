@@ -7,7 +7,7 @@ const rootDir = window.location.origin + '/bibliothek';
  * @param {string} url URL
  * @param {Function} consumerFunction Function which consumes the retrieved data
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function httpGet(url, consumerFunction) {
     fetch(url, {
@@ -31,7 +31,7 @@ function httpGet(url, consumerFunction) {
  * @param {string} url URL
  * @param {any} data Content of the body
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 async function httpPost(url, data = {}) {
     const response = await fetch(url, {
@@ -52,7 +52,7 @@ async function httpPost(url, data = {}) {
  * @param {string} url URL
  * @param {any} data Content of the body
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 async function httpPut(url, data = {}) {
     const response = await fetch(url, {
@@ -73,7 +73,7 @@ async function httpPut(url, data = {}) {
  * @param {string} url URL
  * @param {number|string} id ID of the to be deleted element
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function httpDelete(url, id) {
     return fetch(`${url}/${id}`, {

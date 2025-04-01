@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Interface für DB-Zugang der Entity Adresse
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Adresse
  * @see AdresseController

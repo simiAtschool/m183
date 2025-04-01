@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * Interface für DB-Zugang der Entity User
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see User
  */

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Interface für DB-Zugang der Entity Medium
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Medium
  * @see MediumController

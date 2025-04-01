@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 /**
  * Klasse um Serveranfragen rund um die Entity Medium zu bearbeiten.
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Medium
  * @see MediumRepository

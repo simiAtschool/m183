@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 /**
  * Klasse um Serveranfragen rund um die Entity Kunde zu bearbeiten.
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Kunde
  * @see KundeRepository

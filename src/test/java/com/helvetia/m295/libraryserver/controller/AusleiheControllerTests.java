@@ -30,7 +30,7 @@ import java.util.Optional;
  * Klasse für Testfälle der Klasse {@link AusleiheController} <br>
  * Berechtigungen müssen nicht getestet werden, da standardmässig schon die Rolle "USER" verwendet wird und "USER" weniger Rechte hat, als "ADMIN".
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see AusleiheController
  */

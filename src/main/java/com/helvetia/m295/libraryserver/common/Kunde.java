@@ -25,7 +25,7 @@ import java.util.Date;
  * <li>{@link #email}: Email des Kunden</li>
  * </ul>
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see KundeRepository
  * @see KundeController

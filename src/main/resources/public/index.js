@@ -37,7 +37,7 @@ let role = "ROLE_USER";
  * Extracts values from form and constructs an usable object from it
  * @returns Data extracted from form
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function extractFormData() {
     return convertToNestedObject(Object.fromEntries(new FormData(form).entries().filter(([k, v]) => v != null || v != '')));
@@ -88,7 +88,7 @@ function convertToNestedObject(obj) {
  * @param {string} ressource Name of the ressource which is being submitted
  * @param {number} id Id of the submitted item
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function submit(event, ressource, id = null) {
     const resolve = (response) => {
@@ -116,7 +116,7 @@ function submit(event, ressource, id = null) {
 /**
  * Function to close and open menu
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function openMenu() {
     navigation.style.display = navigation.style.display && navigation.style.display === "none" ? "flex" : "none";
@@ -125,7 +125,7 @@ function openMenu() {
 /**
  * Function to clear table and form content
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function softReset() {
     form.replaceChildren();
@@ -137,7 +137,7 @@ function softReset() {
  * Function to clear event listeners,
  * the table and form contents and make all contents invisible.
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function reset() {
     softReset();
@@ -159,7 +159,7 @@ function reset() {
  * Function to open table view of a specific ressource
  * @param {string} ressource Name of the ressource
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function showTable(ressource) {
     if (!ressource) {
@@ -178,7 +178,7 @@ function showTable(ressource) {
  * Function to open edit view of a specific ressource
  * @param {string} ressource Name of the ressource
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function showEdit(ressource) {
     if (!ressource) {
@@ -198,7 +198,7 @@ function showEdit(ressource) {
  * @param {*} obj Object to edit
  * @param {string} ressource Name of the resource to edit
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function installButtons(obj, ressource) {
     const row = document.createElement("div");
@@ -232,7 +232,7 @@ function installButtons(obj, ressource) {
  * Function to load contents of the view "Ausleihe erstellen"
  * @param {*} obj Object to edit
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToAusleiheErstellen(obj = null) {
     reset();
@@ -250,7 +250,7 @@ function linkToAusleiheErstellen(obj = null) {
 /**
  * Function to load contents of the view "Ausleihetabelle"
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToAusleiheTabelle() {
     reset();
@@ -262,7 +262,7 @@ function linkToAusleiheTabelle() {
  * Function to load contents of the view "Kunde erstellen"
  * @param {*} obj Object to edit
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToKundeErstellen(obj = null) {
     reset();
@@ -278,7 +278,7 @@ function linkToKundeErstellen(obj = null) {
  * Function to load contents of the view "Kundentabelle"
  * @param {string} [searchString=""] String to search for Objects
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToKundeTabelle(searchString = "") {
     reset();
@@ -297,7 +297,7 @@ function linkToKundeTabelle(searchString = "") {
  * Function to load contents of the view "Medium erstellen"
  * @param {*} obj Object to edit
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToMediumErstellen(obj = null) {
     reset();
@@ -309,7 +309,7 @@ function linkToMediumErstellen(obj = null) {
 /**
  * Function to load contents of the view "Medientabelle"
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function linkToMediumTabelle() {
     reset();
@@ -325,7 +325,7 @@ function linkToMediumTabelle() {
  * @param {Object[]} attributes Array of objects containing information about the input element.
  * @see {@link ausleiheAttributes}, {@link mediumAttributes}, {@link kundeAttributes}
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function createForm(obj = null, ressource, form, attributes) {
     form.addEventListener("submit", (event) => { submit(event, ressource, obj?.id) });
@@ -365,7 +365,7 @@ function createForm(obj = null, ressource, form, attributes) {
 /**
  * Function to get a value from an nested object with a string
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function getValueByString(obj, attrArr = "") {
     let e = obj;

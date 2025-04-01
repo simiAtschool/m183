@@ -15,7 +15,7 @@ import jakarta.persistence.*;
  * <li>{@link #active}: Attribut, um User zu deaktivieren</li>
  * </ul>
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see AusleiheRepository
  * @see AusleiheController

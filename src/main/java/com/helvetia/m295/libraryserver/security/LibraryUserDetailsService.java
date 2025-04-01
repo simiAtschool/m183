@@ -13,7 +13,7 @@ import java.util.Optional;
 /**
  * Implementierung von {@link UserDetailsService}
  *
- * @author Simon Fäs
+ * @author Simon
  * @see UserDetailsService
  */
 @Service

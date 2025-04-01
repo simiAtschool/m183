@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * Klasse für Konfigurationen
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  */
 @Configuration

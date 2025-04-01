@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 /**
  * Klasse mit Einstiegsmethode main
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  */
 @SpringBootApplication

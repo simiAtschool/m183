@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Interface für DB-Zugang der Entity Ausleihe
  *
- * @author Simon Fäs
+ * @author Simon
  * @version 1.0.0
  * @see Ausleihe
  * @see AusleiheController

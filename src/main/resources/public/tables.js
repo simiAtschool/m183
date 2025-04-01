@@ -17,7 +17,7 @@ function createHeaderCell(text) {
  * Function to build table containing the ressource Ausleihe
  * @param {any[]} data Array of objects 
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function constructAusleiheTable(data) {
 
@@ -56,7 +56,7 @@ function constructAusleiheTable(data) {
  * @param {number} cellNum Number of the needed cell
  * @returns Cell with content
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function getAusleiheText(obj, cellNum) {
     const addDays = (date, days) => {
@@ -86,7 +86,7 @@ function getAusleiheText(obj, cellNum) {
  * Function to build table containing the ressource Medium
  * @param {any[]} data Array of objects 
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function constructMediumTable(data) {
 
@@ -130,7 +130,7 @@ function constructMediumTable(data) {
  * @param {number} cellNum Number of the needed cell
  * @returns Cell with content
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function getMediumText(obj, cellNum) {
     switch (cellNum) {
@@ -154,7 +154,7 @@ function getMediumText(obj, cellNum) {
  * Function to build table containing the ressource Kunde
  * @param {any[]} data Array of objects 
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function constructKundeTable(data) {
 
@@ -194,7 +194,7 @@ function constructKundeTable(data) {
  * @param {number} cellNum Number of the needed cell
  * @returns Cell with content
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function getKundeText(obj, cellNum) {
     switch (cellNum) {
@@ -221,7 +221,7 @@ function getKundeText(obj, cellNum) {
  * @param {Function} linkFunction Function to change view
  * @returns Button element with event listener to change view
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function editBtn(obj, linkFunction) {
     const editBtn = document.createElement("button");
@@ -237,7 +237,7 @@ function editBtn(obj, linkFunction) {
  * @param {string} ressource Name of the resource of the element to be deleted
  * @returns Button element with event listener to call {@link confirmAndDelete}
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 function deleteBtn(obj, ressource) {
     const deleteBtn = document.createElement("button");
@@ -252,7 +252,7 @@ function deleteBtn(obj, ressource) {
  * @param {*} obj Object to be deleted
  * @param {string} ressource Name of the resource of the element to be deleted
  * @version 1.0.0
- * @author Simon Fäs
+ * @author Simon
  */
 async function confirmAndDelete(obj, ressource) {
     let result = await confirm("Wollen Sie wirklich diesen Eintrag löschen?").valueOf();
